@@ -1,0 +1,62 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "985fe89743a13c8d756dcf75fb874c550a900abf4b5e75714ae165c2662e8774",
+      "check_name": "Redirect",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/links_controller.rb",
+      "line": 31,
+      "link": "https://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(Link.find_by(:slug => params[:slug]).original_url, :allow_other_host => true, :status => :moved_permanently)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "LinksController",
+        "method": "redirect"
+      },
+      "user_input": "Link.find_by(:slug => params[:slug]).original_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        601
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "b6c09981d0bf8add4ec523f761b60df3c0c6187de15ecf9506f81a3d42d67f9c",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/links/show.html.erb",
+      "line": 9,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(Link.find(params[:id]).original_url, Link.find(params[:id]).original_url, :target => \"_blank\", :rel => \"noopener\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "LinksController",
+          "method": "show",
+          "line": 22,
+          "file": "app/controllers/links_controller.rb",
+          "rendered": {
+            "name": "links/show",
+            "file": "app/views/links/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "links/show"
+      },
+      "user_input": "Link.find(params[:id]).original_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": ""
+    }
+  ],
+  "brakeman_version": "7.1.0"
+}
