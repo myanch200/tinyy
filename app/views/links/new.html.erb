@@ -1,0 +1,17 @@
+<div class="bg-secondary-700 text-white rounded-b-2xl p-6">
+  <h1 class="text-lg font-semibold">Tinyy</h1>
+
+  <div class="mt-6">
+    <h2 class="text-2xl font-bold leading-tight">
+      Shorten links without the fuss
+    </h2>
+    <p class="mt-2 text-sm text-gray-300">
+      No complicated plans, or endless offerings
+    </p>
+  </div>
+
+  <%= form_with model: @link, html: {class: "mt-6 flex overflow-hidden rounded-lg border border-gray-400"} do |form| %>
+    <%= form.text_field :original_url, placeholder: "Place your long URL here", class: "flex-1 bg-secondary-700 px-3 py-2 text-white placeholder-gray-400 focus:outline-none" %>
+    <%= form.submit "Shorten", class: "bg-primary-500 px-4 py-2 text-sm font-medium hover:bg-primary-600" %>
+  <% end %>
+</div>

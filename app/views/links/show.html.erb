@@ -1,0 +1,12 @@
+<h1>Short link</h1>
+
+<p>
+  Short URL:
+  <code>
+    <%= link_to redirect_url(@link.slug), redirect_url(@link.slug), target: "_blank", rel: "noopener" %>
+</p>
+
+<p>Destination: <%= link_to @link.original_url, @link.original_url, target: "_blank", rel: "noopener" %></p>
+<p>Clicks: <%= @link.clicks || 0 %></p>
+
+<p style="margin-top: 1rem;"><%= link_to "Create another", new_link_path %></p>
