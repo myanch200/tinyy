@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :links, only: %i[new create show]
+  get "/:slug", to: "links#redirect", as: :redirect
+  root "links#new"
 end
